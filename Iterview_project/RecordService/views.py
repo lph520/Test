@@ -47,8 +47,7 @@ def get_scores(request):
     """
     res_data = copy.deepcopy(RES_DATA)
     client_id = request.GET.get('client_id')
-    from RecordService.util import select_query
-    client_scores = select_query()
+    client_scores = ClientScore.objects.filter().all().order_by('score')
     client_id_score_lst = list()
     client_score_lst = list()
     for item in client_scores:
